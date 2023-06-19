@@ -20,7 +20,7 @@ pip3 install -U requests requests-AWS4Auth cfnresponse
 pip3 install urllib3==2.0.2
 cd $VIRTUAL_ENV/lib/python3.7/site-packages/
 rm -rf wheel* easy_install* setuptools* _virtualenv* pip* _distutils* pkg_resources
-wget https://raw.githubusercontent.com/codster-team/aws-waf-files/lambda_function.py
+wget https://raw.githubusercontent.com/codster-team/aws-waf-files/main/lambda_function.py
 zip -r esconfig.zip .
 aws s3 cp esconfig.zip s3://$1
 deactivate

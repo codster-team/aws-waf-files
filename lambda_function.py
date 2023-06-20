@@ -22,7 +22,7 @@ def lambda_handler(event, context):
       credentials = boto3.Session().get_credentials()
       awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
 
-      repo = 'https://raw.githubusercontent.com/aws-samples/aws-waf-ops-dashboards/main/'
+      repo = 'https://raw.githubusercontent.com/codster-team/aws-waf-files/main/'
 
       filenames = ['awswaf-es-index-template.json']
       headers={'kbn-xsrf': 'true', 'Content-Type': 'application/json'}

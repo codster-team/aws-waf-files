@@ -21,8 +21,8 @@ pip3 install urllib3==1.26.15
 cd $VIRTUAL_ENV/lib/python3.7/site-packages/
 rm -rf wheel* easy_install* setuptools* _virtualenv* pip* _distutils* pkg_resources
 wget https://raw.githubusercontent.com/codster-team/aws-waf-files/main/upload_index_opensearch.py
-zip -r esconfig.zip .
-aws s3 cp esconfig.zip s3://$1
+zip -r build_lambda_index.zip .
+aws s3 cp build_lambda_index.zip s3://$1
 deactivate
 cd ../../../..
 rm -rf venv build

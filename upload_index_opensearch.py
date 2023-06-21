@@ -19,11 +19,14 @@ s3 = boto3.client('s3')
 def lambda_handler(event, context):
     files_to_download = ['awswaf-es-index-template.json']
 
-    for file in files_to_download:
-        url_to_download = f'https://raw.githubusercontent.com/codster-team/aws-waf-files/main/{file}'
-        response = requests.get(url_to_download)
-        document = response.text
-        # Ahora subir el archivo a OpenSearch
-        r = requests.post(url, auth=awsauth, json=document, headers=headers)
-        print(r.text)
+    try:
+        for file in files_to_download:
+            url_to_download = f'https://raw.githubusercontent.com/codster-team/aws-waf-files/main/{file}'
+            response = requests.get(url_to_download)
+            document = response.content
+            # Ahora subir el archivo a OpenSearch
+            r = requests.post(url, auth=awsauth, data=document, headers=headers)
+            print(r.text)
+    except Exception as err:
+        print(err)
 

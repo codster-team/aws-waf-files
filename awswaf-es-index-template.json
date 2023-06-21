@@ -2,10 +2,12 @@
     "index_patterns": [
         "waf-logs-*"
     ],
-    "mappings": {
-        "properties": {
-            "timestamp": {
-                "type": "date"
+    "template": {
+        "mappings": {
+            "properties": {
+                "timestamp": {
+                    "type": "date"
+                }
             }
         }
     }
